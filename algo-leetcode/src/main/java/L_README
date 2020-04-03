@@ -1,0 +1,25 @@
+【题目规范】
+
+1、文件命名和类命名使用格式：
+
+    L_题号_题目中的函数名（首字母大写）
+
+2、必须带测试用例，用例命名格式一样，就是加后缀Test
+
+3、测试用例统一使用题目类 实例化变量使用，类似于：
+public class L_00176_MaximumGapTest {
+    L_00176_MaximumGap l_00176 = new L_00176_MaximumGap();
+    @Test
+    public void testNull() {
+        assertEquals(0, l_00176.maxGap1(null));
+        assertEquals(0, l_00176.maxGap2(null));
+    }
+...
+用例函数名称无要求，一般是test开头。
+
+4、C开头的是Contest比赛题，L开头的是Leetcode的普通题
+
+
+
+
+
