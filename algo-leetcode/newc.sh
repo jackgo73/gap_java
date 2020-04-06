@@ -10,7 +10,7 @@ TEST_PREFIX="src/test/java"
 
 NUMBER=$(printf "%05d\n" ${1})
 TITLE=${2}
-CLASSNAME="L_${NUMBER}_${TITLE}"
+CLASSNAME="C_${NUMBER}_${TITLE}"
 
 mkdir -p ${MAIN_PREFIX}
 mkdir -p ${TEST_PREFIX}
@@ -34,7 +34,7 @@ echo "}"                                >> ${MAIN_PREFIX}/${CLASSNAME}.java
 
 echo ""                                 >> ${TEST_PREFIX}/${CLASSNAME}Test.java
 echo "public class ${CLASSNAME}Test {"      >> ${TEST_PREFIX}/${CLASSNAME}Test.java
-echo "    ${CLASSNAME} l_${NUMBER} = new ${CLASSNAME}();"      >> ${TEST_PREFIX}/${CLASSNAME}Test.java
+echo "    ${CLASSNAME} c_${NUMBER} = new ${CLASSNAME}();"      >> ${TEST_PREFIX}/${CLASSNAME}Test.java
 echo ""                                 >> ${TEST_PREFIX}/${CLASSNAME}Test.java
 echo "}"                                >> ${TEST_PREFIX}/${CLASSNAME}Test.java
 
