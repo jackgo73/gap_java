@@ -1,0 +1,33 @@
+
+CREATE TABLE `students_info` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `stu_no` bigint(20) NOT NULL,
+  `name` varchar(64) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+alter table students_info add unique(stu_no);
+insert into students_info (stu_no,name)values (1,'tom'),(2,'jack'),(3,'lily');
+
+CREATE TABLE `students_score` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `stu_no` bigint(20) NOT NULL,
+  `s1` bigint(20) NOT NULL,
+  `s2` bigint(20) NOT NULL,
+  `s3` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+alter table students_score add unique(stu_no);
+insert into students_score (stu_no,s1,s2,s3)values (1,40,55,66),(2,88,99,88),(3,55,88,99);
+
+
+select b.name, a.s1, a.s2, a.s3,(a.s1+a.s2+a.s3)/3 as avg_score from students_score a
+join students_info b on a.stu_no=b.stu_no
+where (a.s1+a.s2+a.s3)/3 > 80
+order by (a.s1+a.s2+a.s3)/3 desc
+limit 10;
+
+explain select b.name, a.s1, a.s2, a.s3,(a.s1+a.s2+a.s3)/3 as avg_score from students_score a
+join students_info b on a.stu_no=b.stu_no
+where (a.s1+a.s2+a.s3)/3 > 80
+order by (a.s1+a.s2+a.s3)/3 desc
+limit 10;
